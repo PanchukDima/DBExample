@@ -13,7 +13,7 @@ app.debug = True
 
 app.wsgi_app = DispatcherMiddleware(
     Response('Not Found', status=404),
-    {f'/SERVICE_NAME': app.wsgi_app}
+    {f'/{SERVICE_NAME}': app.wsgi_app}
 )
 
 # adding configuration for using a sqlite database
