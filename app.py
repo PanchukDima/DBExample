@@ -2,9 +2,13 @@ from flask import Flask, request, redirect, url_for
 from flask.templating import render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate, migrate
+from metainfo import *
 
 app = Flask(__name__)
 app.debug = True
+
+app.config["APPLICATION_ROOT"] = f"/{SERVICE_NAME}/"
+
 
 # adding configuration for using a sqlite database
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
