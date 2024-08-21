@@ -1,4 +1,4 @@
-from flask import Flask, request, redirect
+from flask import Flask, request, redirect, url_for
 from flask.templating import render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate, migrate
@@ -55,9 +55,9 @@ def profile():
         p = Profile(first_name=first_name, last_name=last_name, age=age)
         db.session.add(p)
         db.session.commit()
-        return redirect('/')
+        return redirect(url_for('index'))
     else:
-        return redirect('/')
+        return redirect(url_for('index'))
     
 @app.route('/delete/<int:id>')
 def erase(id):
@@ -66,7 +66,7 @@ def erase(id):
     data = Profile.query.get(id)
     db.session.delete(data)
     db.session.commit()
-    return redirect('/')
+    return redirect(url_for('index'))
 
 if __name__ == '__main__':
     app.run()
