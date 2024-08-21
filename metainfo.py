@@ -1,0 +1,2 @@
+SERVICE_NAME = "DBExample"
+VERSION = "1.0.0"
