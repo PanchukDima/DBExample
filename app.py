@@ -55,9 +55,9 @@ def profile():
         p = Profile(first_name=first_name, last_name=last_name, age=age)
         db.session.add(p)
         db.session.commit()
-        return redirect(url_for('.index'))
+        return redirect('./')
     else:
-        return redirect(url_for('.index'))
+        return redirect('./')
     
 @app.route('/delete/<int:id>')
 def erase(id):
@@ -66,7 +66,7 @@ def erase(id):
     data = Profile.query.get(id)
     db.session.delete(data)
     db.session.commit()
-    return redirect(url_for('.index'))
+    return redirect(url_for('./'))
 
 if __name__ == '__main__':
     app.run()
